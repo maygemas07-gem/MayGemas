@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: white;
+    text-align: center;
+
+    background: 
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+        url("fondo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ===== EFECTO BRILLO LUJO ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+
+    background: radial-gradient(circle at center, rgba(255,215,0,0.12), transparent 60%);
+    
+    pointer-events: none;
+}
+
+/* ===== TEXTOS ===== */
+h1 {
+    color: gold;
+    font-size: 45px;
+    letter-spacing: 3px;
+    margin-top: 30px;
+}
+
+h2 {
+    color: gold;
+    margin-top: 40px;
+    letter-spacing: 2px;
+}
+
+p {
+    color: #ccc;
+    font-size: 18px;
+}
+
+/* ===== CATÁLOGO ===== */
+.catalogo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* ===== PRODUCTOS ===== */
+.producto {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 15px;
+    margin: 20px;
+    padding: 20px;
+    width: 260px;
+
+    backdrop-filter: blur(6px);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    position: relative;
+
+    /* Animación */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.8s ease forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover lujo */
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+}
+
+/* ===== IMÁGENES ===== */
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ===== PRECIOS ===== */
+.precio {
+    color: gold;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* ===== BOTONES ===== */
+a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, gold, #d4af37);
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a:hover {
+    transform: scale(1.08);
+    background: gold;
+}
+
+/* ===== ETIQUETAS ===== */
+.etiqueta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.oferta {
+    background: red;
+    color: white;
+}
+
+.nuevo {
+    background: green;
+    color: white;
+}
+
+.vendido {
+    background: gold;
+    color: black;
+}
+
+/* ===== RESPONSIVE (CELULAR) ===== */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .catalogo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .producto {
+        width: 90%;
+    }
+
+    .producto img {
+        width: 100%;
+    }
+
+    a {
+        width: 80%;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
