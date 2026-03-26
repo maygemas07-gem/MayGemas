@@ -16,6 +16,13 @@
 <!-- SECCIÓN PRINCIPAL -->
 <selection>
 <h2>Nuestras Manillas</h2>
+<div class="contador-box">
+    <p class="contador-texto">OFERTA EXCLUSIVA</p>
+    <p id="contador"></p>
+</div>
+<p id="contador" style="color: gold; font-size: 20px; font-weight: bold;">
+    Oferta termina en: 10:00
+</p>
 
 <div class="catalogo">
 
@@ -56,6 +63,7 @@
     <img src="manilla4.jpg">
     <h3>Macla Natural</h3>
     <p>Exclusiva Macla Natural 💎</p>
+<p class="precio-antes">$2.000.000</p>
 <p class="precio">$1.500.000</p>
 <a href="https://wa.me/573154405246?text=Hola%20quiero%20la%20Macla%20Natural" target="_blank">
     Comprar
@@ -67,6 +75,7 @@
     <img src="manilla.jpg">
     <h3>Manilla Exclusiva</h3>
     <p>exclusiva manilla de proteccion en oro diamantado 💎</p>
+<p class="precio-antes">$2.200.000</p>
 <p class="precio">$1.800.000</p>
 <a href="https://wa.me/573154405246?text=Hola%20quiero%20la%20Manilla%20Oro%2018K" target="_blank">
     Comprar
@@ -89,7 +98,29 @@
     <footer>
         <p>© 2026 Maygemas - Todos los derechos reservados</p>
     </footer>
+<script>
+let tiempo = 600;
+
+function actualizarContador() {
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
+
+    minutos = minutos < 10 ? "0" + minutos : minutos;
+    segundos = segundos < 10 ? "0" + segundos : segundos;
+
+    document.getElementById("contador").innerHTML =
+        minutos + " : " + segundos;
+
+    if (tiempo > 0) {
+        tiempo--;
+        setTimeout(actualizarContador, 1000);
+    } else {
+        document.getElementById("contador").innerHTML = "FINALIZADO";
+    }
+}
+
+actualizarContador();
+</script>
 
 </body>
 </html>
-
